@@ -2,9 +2,11 @@
   "name": "integrado-challenge",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/app.js"
   },
   "repository": {
     "type": "git",
