@@ -1,17 +1,10 @@
-import { Request, Response } from "express";
-import { BaseResponse } from "../../util/extensions/baseResponse";
+import { Request } from "express";
+import ResourceNotFoundError from "../../util/errors/resourceNotFoundError";
 
-async function defaultController(request: Request, responseHandler: Response) {
-  const response = new BaseResponse();
-
-  response.setResponse({
-    statusCode: 404,
-    message: "Requested resource not found",
-    errorDetails: `The resource at ${request.path} does not exist`,
-    requestID: request.id,
-  });
-
-  return response.sendResponse(responseHandler);
+async function defaultController(
+  request: Request,
+) {
+  throw new ResourceNotFoundError(request.path);
 }
 
 export default defaultController;
