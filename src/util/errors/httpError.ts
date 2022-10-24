@@ -1,3 +1,5 @@
+import { NODE_ENV } from "../../config/settings";
+
 export default class HttpError extends Error {
   public statusCode: number = 0;
   public data?: any; // eslint-disable-line
@@ -11,7 +13,7 @@ export default class HttpError extends Error {
       message: this.message,
       status: this.statusCode,
       data: this.data,
-      stack: process.env.NODE_ENV === "development" ? this.stack : null,
+      stack: NODE_ENV === "development" ? this.stack : null,
     };
   }
 }
