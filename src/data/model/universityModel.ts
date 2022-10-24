@@ -1,15 +1,7 @@
 import { Schema, model } from "mongoose";
+import TUniversity from "../types/universityType";
 
-interface IUniversity {
-  "alpha_two_code": string;
-  "country": string;
-  "domains": string[];
-  "name": string;
-  "state-province": string;
-  "web_pages": string[];
-}
-
-const universitySchema = new Schema<IUniversity>({
+const universitySchema = new Schema<TUniversity>({
   "alpha_two_code": { type: String, maxLength: 2 },
   "country": String,
   "domains": [String],
