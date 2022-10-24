@@ -5,6 +5,6 @@ import defaultRouter from "./default/defaultRoutes";
 const router = Router(); // eslint-disable-line new-cap
 
 router.use("/status", statusRouter);
-router.use("*", defaultRouter);
+router.use("(.*)", defaultRouter);
 
 export default router;
