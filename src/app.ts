@@ -1,6 +1,8 @@
+import "dotenv/config";
+import { PORT } from "./config/settings";
 import { startServer, stopServer } from "./server";
 
-startServer(3010);
+startServer(+PORT);
 
 process.on("SIGTERM", stopServer);
 process.on("SIGINT", stopServer);
