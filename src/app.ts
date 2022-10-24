@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { PORT } from "./config/settings";
 import { startServer, stopServer } from "./server";
 
