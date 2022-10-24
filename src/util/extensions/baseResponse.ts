@@ -1,10 +1,11 @@
 import { Response } from "express";
+import HttpError from "../errors/httpError";
 
 type TResponseData = {
   requestID: string;
   message: string;
   statusCode: number;
-  error?: Error;
+  error?: HttpError;
   errorDetails?: string;
 }
 
@@ -12,7 +13,7 @@ class BaseResponseBase {
   public requestID: string = "";
   public message: string = "";
   public statusCode: number = 0;
-  public error?: Error;
+  public error?: HttpError;
   public errorDetails?: string;
 }
 
