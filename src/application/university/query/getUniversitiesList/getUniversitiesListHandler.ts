@@ -1,5 +1,4 @@
 import University from "../../../../data/model/universityModel";
-import TUniversity from "../../../../data/types/universityType";
 import BadRequestError from "../../../../util/errors/badRequestError";
 import ResourceNotFoundError from
   "../../../../util/errors/resourceNotFoundError";

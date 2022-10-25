@@ -98,6 +98,10 @@ export class BaseResponsePaged<TData> extends BaseResponseBase {
         error: this.error,
         data: this.data,
         errorDetails: this.errorDetails,
+        pageIndex: this.pageIndex,
+        pageSize: this.pageSize,
+        totalPages: this.totalPages,
+        totalItems: this.totalItems,
       })
       .send()
       .end();
