@@ -1,15 +1,14 @@
 import { Request, Response } from "express";
 import getUniversityByIDHandler from
   "../../application/university/query/getUniversityByID/getUniversityByIDHandler"; // eslint-disable-line max-len
-import IGetUniversityByIDResponseDTO from
-  "../../application/university/query/getUniversityByID/getUniversityByIDResponseDTO"; // eslint-disable-line max-len
+import TUniversityResponse from "../../data/types/universityResponseType";
 import { BaseResponse } from "../../util/extensions/baseResponse";
 
 async function getUniversityByIDController(
   request: Request,
   responseHandler: Response
 ) {
-  const responseData = new BaseResponse<IGetUniversityByIDResponseDTO>();
+  const responseData = new BaseResponse<TUniversityResponse>();
 
   const payload = {
     id: request.params.id,

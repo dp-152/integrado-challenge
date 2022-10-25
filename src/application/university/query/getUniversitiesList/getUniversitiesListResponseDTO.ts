@@ -1,6 +1,7 @@
 import { PaginateResult } from "mongoose";
-import TUniversity from "../../../../data/types/universityType";
+import TUniversityResponse from "../../../../data/types/universityResponseType";
 
-interface IGetUniversitiesListResponseDTO extends PaginateResult<TUniversity> {}
+interface IGetUniversitiesListResponseDTO
+  extends PaginateResult<TUniversityResponse> {}
 
 export default IGetUniversitiesListResponseDTO;

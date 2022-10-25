@@ -1,8 +1,5 @@
-import { Types } from "mongoose";
-import TUniversity from "../../../../data/types/universityType";
+import TUniversityResponse from "../../../../data/types/universityResponseType";
 
-interface IGetUniversityByIDResponseDTO extends TUniversity {
-  _id: Types.ObjectId;
-}
+interface IGetUniversityByIDResponseDTO extends TUniversityResponse {}
 
 export default IGetUniversityByIDResponseDTO;
