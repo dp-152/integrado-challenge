@@ -19,7 +19,7 @@ export default async function getUnivrsitiesListHandler(
   const pageSize = 20;
 
   const result = await University.paginate(
-    request.country ? { country: request.country } : {},
+    request.country ? { country: new RegExp(request.country, "i") } : {},
     { page: pageNumber, limit: pageSize }
   );
 
