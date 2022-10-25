@@ -5,10 +5,12 @@ import TUniversity from "../data/types/universityType";
 
 export default async function populateImports() {
   try {
-    await fs.access("../data/import/universities");
+    await fs.access(path.join(__dirname, "../data/import/universities"));
     return;
   } catch {
-    await fs.mkdir("../data/import/universities", { recursive: true });
+    await fs.mkdir(path.join(__dirname, "../data/import/universities"), {
+      recursive: true,
+    });
 
     const countries = [
       "argentina",
@@ -24,12 +26,15 @@ export default async function populateImports() {
     await Promise.all(
       countries.map(async country => {
         const { data: response } = await axios.get<TUniversity[]>(
-          "http://universities.hipolabs.com/search/",
+          "http://universities.hipolabs.com/search",
           { params: { country } }
         );
 
         await fs.writeFile(
-          path.join(`../data/import/universities/universities-${country}.json`),
+          path.join(
+            __dirname,
+            `../data/import/universities/universities-${country}.json`
+          ),
           JSON.stringify(response)
         );
       })
