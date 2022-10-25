@@ -15,6 +15,6 @@ universitySchema.index(
   { unique: true }
 );
 
-const University = model("university", universitySchema);
+const University = model("universities", universitySchema);
 
 export default University;
