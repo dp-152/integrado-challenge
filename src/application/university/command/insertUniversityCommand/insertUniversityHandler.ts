@@ -1,5 +1,5 @@
-import University from "../../../data/model/universityModel";
-import BadRequestError from "../../../util/errors/badRequestError";
+import University from "../../../../data/model/universityModel";
+import BadRequestError from "../../../../util/errors/badRequestError";
 import IInsertUniversityRequestDTO from "./insertUniversityRequestDTO";
 import validateInsertUniversity from "./insertUniversityValidator";
 

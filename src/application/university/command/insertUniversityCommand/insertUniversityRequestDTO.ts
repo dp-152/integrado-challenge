@@ -1,4 +1,4 @@
-import TUniversity from "../../../data/types/universityType";
+import TUniversity from "../../../../data/types/universityType";
 
 interface IInsertUniversityRequestDTO extends TUniversity {}
 

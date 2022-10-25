@@ -1,4 +1,4 @@
-import TValidationResult from "../../../util/types/validationResult";
+import TValidationResult from "../../../../util/types/validationResult";
 import IInsertUniversityRequestDTO from "./insertUniversityRequestDTO";
 
 export default function validateInsertUniversity(
