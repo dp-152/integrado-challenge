@@ -14,7 +14,7 @@ export default async function getUnivrsitiesListHandler(
     throw new BadRequestError(errorList);
   }
 
-  const pageNumber = request.pageNumber || 1;
+  const pageNumber = Number(request.pageNumber) || 1;
   const pageSize = 20;
 
   const result = await University.paginate(

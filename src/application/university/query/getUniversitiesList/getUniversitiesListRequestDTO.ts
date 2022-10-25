@@ -1,5 +1,5 @@
 interface IGetUniversitiesListRequestDTO {
-  pageNumber?: number,
+  pageNumber?: string,
   country?: string,
 }
 

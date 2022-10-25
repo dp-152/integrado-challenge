@@ -7,7 +7,7 @@ export default function validateGetUniversitiesList(
   let isValid = true;
   const errorList: string[] = [];
 
-  if (!!request.pageNumber && typeof request.pageNumber !== "number") {
+  if (!!request.pageNumber && Number(request.pageNumber)) {
     isValid = false;
     errorList.push(`Requested page number ${request.pageNumber} is not valid`);
   }
