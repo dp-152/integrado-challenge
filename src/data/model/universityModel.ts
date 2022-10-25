@@ -20,9 +20,9 @@ universitySchema.plugin(paginate);
 
 interface IUniversityDocument extends Document, TUniversity {}
 
-const University = model<IUniversityDocument, PaginateModel<TUniversity>>(
-  "universities",
-  universitySchema
-);
+const University = model<
+  IUniversityDocument,
+  PaginateModel<IUniversityDocument>
+>("universities", universitySchema);
 
 export default University;
