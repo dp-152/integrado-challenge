@@ -1,4 +1,5 @@
 import { Response } from "express";
+import { PaginateResult } from "mongoose";
 import HttpError from "../errors/httpError";
 
 type TResponseData = {
@@ -7,7 +8,7 @@ type TResponseData = {
   statusCode: number;
   error?: HttpError;
   errorDetails?: string;
-}
+};
 
 class BaseResponseBase {
   public requestID: string = "";
@@ -64,13 +65,21 @@ export class BaseResponsePaged<TData> extends BaseResponseBase {
   public totalItems: number = 0;
   public data: TData[] = [] as TData[];
 
-  public setResponse(responseData: TResponseData, body: TData[]) {
+  public setResponse(
+    responseData: TResponseData,
+    paginatedResult: PaginateResult<TData>
+  ) {
     this.requestID = responseData.requestID;
     this.message = responseData.message;
     this.statusCode = responseData.statusCode;
     this.error = responseData.error;
     this.errorDetails = responseData.errorDetails;
-    this.data = body;
+
+    this.pageIndex = paginatedResult.page || 0;
+    this.pageSize = paginatedResult.limit;
+    this.totalPages = paginatedResult.totalPages;
+    this.totalItems = paginatedResult.totalDocs;
+    this.data = paginatedResult.docs;
 
     this.isSet = true;
   }
@@ -89,6 +98,10 @@ export class BaseResponsePaged<TData> extends BaseResponseBase {
         error: this.error,
         data: this.data,
         errorDetails: this.errorDetails,
+        pageIndex: this.pageIndex,
+        pageSize: this.pageSize,
+        totalPages: this.totalPages,
+        totalItems: this.totalItems,
       })
       .send()
       .end();

@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, PaginateModel, Document } from "mongoose";
+import paginate from "mongoose-paginate-v2";
 import TUniversity from "../types/universityType";
 
 const universitySchema = new Schema<TUniversity>({
@@ -15,6 +16,13 @@ universitySchema.index(
   { unique: true }
 );
 
-const University = model("universities", universitySchema);
+universitySchema.plugin(paginate);
+
+interface IUniversityDocument extends Document, TUniversity {}
+
+const University = model<
+  IUniversityDocument,
+  PaginateModel<IUniversityDocument>
+>("universities", universitySchema);
 
 export default University;
