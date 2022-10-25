@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  api:
+    restart: always
+    environment:
+      PORT: 3000
+      MONGODB_CONNECTION_STRING: mongodb://root:OFw4gBTxyRzhvD492ncskF1M@mongo:27017
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      - mongo
+    ports:
+      - "3000:3000"
+  
+  mongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: OFw4gBTxyRzhvD492ncskF1M
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data_container:/data/db
+    
+volumes:
+  mongodb_data_container:
