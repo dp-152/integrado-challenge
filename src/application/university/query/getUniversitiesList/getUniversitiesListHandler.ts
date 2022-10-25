@@ -1,4 +1,5 @@
 import University from "../../../../data/model/universityModel";
+import TUniversity from "../../../../data/types/universityType";
 import BadRequestError from "../../../../util/errors/badRequestError";
 import ResourceNotFoundError from
   "../../../../util/errors/resourceNotFoundError";
@@ -18,7 +19,7 @@ export default async function getUnivrsitiesListHandler(
   const pageSize = 20;
 
   const result = await University.paginate(
-    { country: request.country },
+    request.country ? { country: request.country } : {},
     { page: pageNumber, limit: pageSize }
   );
 
