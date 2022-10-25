@@ -9,10 +9,10 @@ import { MONGODB_CONNECTION_STRING } from "./config/settings";
 
 let server: Server;
 
-function startServer(port: number) {
+async function startServer(port: number) {
   const app = express();
 
-  mongooseConnect(MONGODB_CONNECTION_STRING);
+  await mongooseConnect(MONGODB_CONNECTION_STRING);
 
   app.use(express.json({ limit: "5mb" }));
   app.use(requestID);
@@ -24,7 +24,7 @@ function startServer(port: number) {
   server.listen(port);
 }
 
-function stopServer(error?: Error) {
+async function stopServer(error?: Error) {
   if (error) {
     try {
       server.close();
