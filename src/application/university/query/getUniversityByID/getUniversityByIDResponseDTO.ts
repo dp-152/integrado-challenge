@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import TUniversity from "../../../data/types/universityType";
+import TUniversity from "../../../../data/types/universityType";
 
 interface IGetUniversityByIDResponseDTO extends TUniversity {
   _id: Types.ObjectId;
