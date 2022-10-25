@@ -254,3 +254,6 @@ $RECYCLE.BIN/
 # Typescript build artifacts
 **/build/
 **/dist/
+
+# Import files generated at runtime
+src/data/import/**
