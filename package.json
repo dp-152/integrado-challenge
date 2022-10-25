@@ -38,6 +38,7 @@
     "dotenv": "^16.0.3",
     "express": "^5.0.0-beta.1",
     "mongo-seeding": "^3.7.2",
-    "mongoose": "^6.6.7"
+    "mongoose": "^6.6.7",
+    "mongoose-paginate-v2": "^1.7.1"
   }
 }
