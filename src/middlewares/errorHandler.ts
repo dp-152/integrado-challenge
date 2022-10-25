@@ -6,9 +6,12 @@ export default function errorHandler(
   error: HttpError,
   expressRequest: Request,
   expressResponse: Response,
-  next: NextFunction,
+  next: NextFunction
 ) {
-  if (expressResponse.headersSent) next(error);
+  if (expressResponse.headersSent || !(error instanceof HttpError)) {
+    next(error);
+    return;
+  }
 
   const response = new BaseResponse<typeof error>();
 
