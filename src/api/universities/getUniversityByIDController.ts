@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import getUniversityByIDHandler from
-  "../../application/university/query/getUniversityByIDHandler";
+  "../../application/university/query/getUniversityByID/getUniversityByIDHandler"; // eslint-disable-line max-len
 import IGetUniversityByIDResponseDTO from
-  "../../application/university/query/getUniversityByIDResponseDTO";
+  "../../application/university/query/getUniversityByID/getUniversityByIDResponseDTO"; // eslint-disable-line max-len
 import { BaseResponse } from "../../util/extensions/baseResponse";
 
 async function getUniversityByIDController(

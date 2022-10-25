@@ -1,7 +1,8 @@
 import { ObjectId } from "mongodb";
-import University from "../../../data/model/universityModel";
-import BadRequestError from "../../../util/errors/badRequestError";
-import ResourceNotFoundError from "../../../util/errors/resourceNotFoundError";
+import University from "../../../../data/model/universityModel";
+import BadRequestError from "../../../../util/errors/badRequestError";
+import ResourceNotFoundError from
+  "../../../../util/errors/resourceNotFoundError";
 import IGetUniversityByIDRequestDTO from "./getUniversityByIDRequestDTO";
 import validateGetUniversityByID from "./getUniversityByIDValidator";
 

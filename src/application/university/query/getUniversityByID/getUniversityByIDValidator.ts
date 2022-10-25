@@ -1,5 +1,5 @@
 import { isValidObjectId } from "mongoose";
-import TValidationResult from "../../../util/types/validationResult";
+import TValidationResult from "../../../../util/types/validationResult";
 import IGetUniversityByIDRequestDTO from "./getUniversityByIDRequestDTO";
 
 export default function validateGetUniversityByID(
