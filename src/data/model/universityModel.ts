@@ -4,7 +4,7 @@ import TUniversity from "../types/universityType";
 
 const universitySchema = new Schema<TUniversity>({
   "alpha_two_code": { type: String, maxLength: 2 },
-  "country": String,
+  "country": { type: String, index: 1 },
   "domains": [String],
   "name": String,
   "state-province": { type: String, required: false },
@@ -13,7 +13,10 @@ const universitySchema = new Schema<TUniversity>({
 
 universitySchema.index(
   { "alpha-two-code": 1, "state-province": 1, "name": 1 },
-  { unique: true }
+  {
+    unique: true,
+    partialFilterExpression: { "state-province": { "$type": String } },
+  },
 );
 
 universitySchema.plugin(paginate);
